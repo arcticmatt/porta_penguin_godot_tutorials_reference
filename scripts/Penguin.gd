@@ -2,7 +2,7 @@ extends RigidBody2D
 
 const UP_IMPULSE: float = -55.0
 
-func _ready():
+func _ready() -> void:
 	collision_layer = CollisionLayers.Layers.PENGUIN
 	collision_mask = 0
 	set_collision_mask_bit(CollisionLayers.Layers.WALL, true)
