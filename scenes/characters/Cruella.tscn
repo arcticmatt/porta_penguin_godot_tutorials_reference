@@ -7,7 +7,7 @@
 resource_name = "Walk"
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -26,6 +26,7 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 3
+frame = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Walk = SubResource( 1 )

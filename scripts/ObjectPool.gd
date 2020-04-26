@@ -2,17 +2,13 @@ extends Node2D
 
 ### Export variables
 export var g_copies_of_each: int = 2
-# y measured from bottom of sprites, so characters all line up
 export var g_min_y: int = 860
 export var g_max_y: int = 860
-export var g_min_spawn_wait_ms = 1000
-export var g_max_spawn_wait_ms = 2000
+export var g_min_spawn_wait_ms: int = 1000
+export var g_max_spawn_wait_ms: int = 2000
+export var g_object_velocity: float = 5
 export var g_path: String = ""
-export var g_object_velocity = 5
 export var g_starting_x: int = 1700
-
-### Constants
-const LEFT_BOUND = -50
 
 ### Object pool globals
 var g_last_spawn_time_ms: int = 0
@@ -20,6 +16,9 @@ var g_max_available_objects: int = 0
 var g_object_pool: Array = []
 var g_object_pool_available: Array = []
 var g_rand_spawn_wait_ms: int = 0
+
+### Constants
+const LEFT_BOUND: int = -50
 
 func _ready() -> void:
 	var paths: Array = _get_full_paths(g_path)
@@ -80,7 +79,7 @@ func _get_full_paths(path: String) -> Array:
 		paths.append(path + file)
 	return paths
 
-# Gets a random (within certain boundaries) global position to spawn the 
+# Returns a random (within certain boundaries) global position to spawn the 
 # passed-in object at.
 func _get_random_global_position(object: Node2D) -> Vector2:
 	var texture_height: float = object.get_height()

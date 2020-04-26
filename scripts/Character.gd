@@ -17,4 +17,4 @@ func reset() -> void:
 # @note: for ObjectPool.
 func start(velocity: float) -> void:
 	g_velocity = -velocity
-	$Sprite/AnimationPlayer.play('Walk')
+	$AnimationPlayer.play('Walk')
